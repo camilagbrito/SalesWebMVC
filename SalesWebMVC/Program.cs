@@ -12,6 +12,8 @@ builder.Services.AddDbContext<SalesWebMVCContext>(options =>
     
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<SeedingService>();  
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +30,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
 
 app.MapControllerRoute(
     name: "default",
