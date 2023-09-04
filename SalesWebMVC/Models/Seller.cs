@@ -27,7 +27,7 @@ namespace SalesWebMVC.Models
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
 
-        public Department Department { get; set; }
+        public Department? Department { get; set; }
         [Display(Name = "Department")]
         public int DepartmentId { get; set; }
 
@@ -35,7 +35,7 @@ namespace SalesWebMVC.Models
 
         public Seller() { }
 
-        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department department)
+        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department? department)
         {
             Id = id;
             Name = name;
